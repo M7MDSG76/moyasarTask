@@ -7,7 +7,7 @@ module Authenticable
 
   def authenticate_request
     token = request.headers["Authorization"]&.split("Bearer ")&.last
-    api_token = ApiToken.find_by(token: token)
+    api_token = ApiToken.find_by(token: token) # token manually gereated and saved in the DB.
     head :unauthorized unless api_token
   end
 end

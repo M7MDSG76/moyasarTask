@@ -33,7 +33,7 @@ module V1
           storage_backend: ENV["STORAGE_BACKEND"],
           storage_identifier: uid
         )
-      else
+      elsif ENV["STORAGE_BACKEND"] == "s3"
         puts "Creating blob for s3"
         blob = Blob.create!(
           uid: uid,
@@ -42,9 +42,16 @@ module V1
           storage_backend: ENV["STORAGE_BACKEND"],
           storage_identifier: storage_info[:id]
         )
+      elsif ENV["STORAGE_BACKEND"] == "local"
+        puts "Creating blob for local storage with uid: #{uid}"
+        blob = Blob.create!(
+          uid: uid,
+          size: blob_data.bytesize,
+          created_at: Time.now.utc,
+          storage_backend: ENV["STORAGE_BACKEND"],
+          storage_identifier: uid
+        )
       end
-
-
       puts("Blob created: #{blob.inspect}")
 
 

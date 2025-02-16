@@ -3,6 +3,7 @@ class LocalStorageService
   def initialize(config = {})
     @storage_path = config[:path]
     puts "LocalStorageService initialized with storage_path: #{@storage_path}"
+    @storage_path = File.join(Dir.pwd, @storage_path)
     FileUtils.mkdir_p(@storage_path)
   end
 
