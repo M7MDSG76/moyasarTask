@@ -72,7 +72,7 @@ gem "pg"
 gem "dotenv-rails", groups: [ :development, :test ]
 
 group :development, :test do
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.1"
 end
 
 
@@ -80,7 +80,7 @@ end
 gem "dotenv-rails", groups: [ :development, :test ]
 
 group :test do
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.1"
   gem "factory_bot_rails"
   gem "faker"
   gem "webmock"
